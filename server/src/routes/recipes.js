@@ -28,9 +28,6 @@ export const SELECT_RECIPE = `
 `;
 
 router.get("/home", (_req, res) => {
-  // #region agent log
-  fetch('http://127.0.0.1:7481/ingest/b0a2a51a-b970-481d-9e1e-538890033a31',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'c7e133'},body:JSON.stringify({sessionId:'c7e133',runId:'post-fix',hypothesisId:'A',location:'recipes.js:/home',message:'Correct /home route hit',data:{route:'/home'},timestamp:Date.now()})}).catch(()=>{});
-  // #endregion
   try {
     const featured = db
       .prepare(`${SELECT_RECIPE} WHERE r.is_featured = 1 ORDER BY r.created_at DESC LIMIT 6`)
@@ -132,9 +129,6 @@ router.post("/", authRequired, uploadImage, (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  // #region agent log
-  fetch('http://127.0.0.1:7481/ingest/b0a2a51a-b970-481d-9e1e-538890033a31',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'c7e133'},body:JSON.stringify({sessionId:'c7e133',runId:'pre-fix',hypothesisId:'C',location:'recipes.js/:id',message:'Param route hit instead of /home',data:{idParam:req.params.id},timestamp:Date.now()})}).catch(()=>{});
-  // #endregion
   try {
     const row = db.prepare(`${SELECT_RECIPE} WHERE r.id = ?`).get(req.params.id);
     if (!row) {

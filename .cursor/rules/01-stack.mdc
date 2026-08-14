@@ -1,0 +1,14 @@
+---
+description: RecipeHub stack — React client, Express server, SQLite
+alwaysApply: true
+---
+
+# Stack
+
+- **RecipeHub** full-stack app in this folder.
+- Frontend: `client/` — React (Vite) + React Router
+- Backend: `server/` — Node.js + Express REST API + JWT
+- Database: **SQLite** file at `server/data/recipehub.db` (no PostgreSQL install needed)
+- Learning docs stay in `docs/`.
+- Run: `npm install` + `npm run db:setup` + `npm run dev` in `server/`; `npm install` + `npm run dev` in `client/`.
+- Never commit secrets (`.env`).

@@ -1,0 +1,13 @@
+---
+description: Core manners for this project — plain language, small diffs, no invented facts
+alwaysApply: true
+---
+
+# Core
+
+- Talk in plain language. Prefer short checklists.
+- Prefer small diffs. Do not rewrite files you were not asked to touch.
+- Do not invent APIs, ticket IDs, requirements, or design details.
+- Ask when unsure. Wait for an answer before guessing.
+- Never commit secrets (`.env`, API keys, tokens). Never put tokens in chat or in committed files.
+- Do not commit unless the user asks.

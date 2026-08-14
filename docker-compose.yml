@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: recipehub
+    ports:
+      - "5432:5432"
+    volumes:
+      - recipehub_pg:/var/lib/postgresql/data
+
+volumes:
+  recipehub_pg:
